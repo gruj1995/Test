@@ -17,14 +17,20 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        countLabel.font = .systemFont(ofSize: 30, weight: .medium)
+
+        countLabel.font = .systemFont(ofSize: 25, weight: .medium)
         countLabel.textColor = .white
         setTableView()
     }
 
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
+        self.countLabel.text = "資料載入中"
         viewModel.fetchItems {[weak self] isSuccess in
             guard let self = self else {return}
             self.countLabel.text = "totalCount: \(self.viewModel.sectionData.count)"

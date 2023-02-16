@@ -17,8 +17,8 @@ class TagCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        contentView.layer.cornerRadius = 3
-        contentView.clipsToBounds = true
+        layoutIfNeeded()
+        layer.cornerRadius = 5
     }
     
     func configuration(tag: String) {
