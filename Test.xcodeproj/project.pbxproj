@@ -29,6 +29,9 @@
 		8B4D3667299DEE3C00059381 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4D3666299DEE3C00059381 /* TableViewCell.swift */; };
 		8B4D366A299DEF5E00059381 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 8B4D3669299DEF5E00059381 /* Kingfisher */; };
 		8B4D366C299DF2E900059381 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4D366B299DF2E900059381 /* UIColor+Extensions.swift */; };
+		8B4D3673299E148800059381 /* ContentSizedCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4D3672299E148800059381 /* ContentSizedCollectionView.swift */; };
+		8B4D3675299E226F00059381 /* CollectionCellAutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4D3674299E226F00059381 /* CollectionCellAutoLayout.swift */; };
+		8B4D3677299E22BA00059381 /* CustomViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4D3676299E22BA00059381 /* CustomViewFlowLayout.swift */; };
 		AFC268C1CA7A8D60F7496732 /* Pods_Test.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 796A32A15D65707479A05093 /* Pods_Test.framework */; };
 		CE3B4811F4ADFDD99F895202 /* Pods_TestTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B72FB6742A58E4203B183B65 /* Pods_TestTests.framework */; };
 /* End PBXBuildFile section */
@@ -79,6 +82,9 @@
 		8B4D3664299DEB1900059381 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8B4D3666299DEE3C00059381 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		8B4D366B299DF2E900059381 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		8B4D3672299E148800059381 /* ContentSizedCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentSizedCollectionView.swift; sourceTree = "<group>"; };
+		8B4D3674299E226F00059381 /* CollectionCellAutoLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCellAutoLayout.swift; sourceTree = "<group>"; };
+		8B4D3676299E22BA00059381 /* CustomViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewFlowLayout.swift; sourceTree = "<group>"; };
 		9F4E2D16ADC1BB245835B168 /* Pods-TestTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestTests.debug.xcconfig"; path = "Target Support Files/Pods-TestTests/Pods-TestTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B72FB6742A58E4203B183B65 /* Pods_TestTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8559CB80A4924692D78AD32 /* Pods-Test-TestUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Test-TestUITests.debug.xcconfig"; path = "Target Support Files/Pods-Test-TestUITests/Pods-Test-TestUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -174,6 +180,9 @@
 				8B4D361C299DB04700059381 /* Assets.xcassets */,
 				8B4D361E299DB04700059381 /* LaunchScreen.storyboard */,
 				8B4D3621299DB04700059381 /* Info.plist */,
+				8B4D3672299E148800059381 /* ContentSizedCollectionView.swift */,
+				8B4D3676299E22BA00059381 /* CustomViewFlowLayout.swift */,
+				8B4D3674299E226F00059381 /* CollectionCellAutoLayout.swift */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -490,15 +499,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B4D3661299DD16E00059381 /* Item.swift in Sources */,
+				8B4D3677299E22BA00059381 /* CustomViewFlowLayout.swift in Sources */,
 				8B4D365C299DC4B200059381 /* NetworkError.swift in Sources */,
 				8B4D364A299DB45200059381 /* MainViewController.swift in Sources */,
 				8B4D3663299DE2BB00059381 /* TagCell.swift in Sources */,
+				8B4D3675299E226F00059381 /* CollectionCellAutoLayout.swift in Sources */,
 				8B4D3614299DB04600059381 /* AppDelegate.swift in Sources */,
 				8B4D3616299DB04600059381 /* SceneDelegate.swift in Sources */,
 				8B4D364C299DB47400059381 /* MainViewModel.swift in Sources */,
 				8B4D366C299DF2E900059381 /* UIColor+Extensions.swift in Sources */,
 				8B4D3658299DBA2400059381 /* WebApiManager.swift in Sources */,
 				8B4D3667299DEE3C00059381 /* TableViewCell.swift in Sources */,
+				8B4D3673299E148800059381 /* ContentSizedCollectionView.swift in Sources */,
 				8B4D365A299DC24C00059381 /* APIManager.swift in Sources */,
 				8B4D3665299DEB1900059381 /* User.swift in Sources */,
 			);

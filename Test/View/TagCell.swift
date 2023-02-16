@@ -23,7 +23,7 @@ class TagCell: UICollectionViewCell {
     
     func configuration(tag: String) {
         tagLabel.text = tag
-        tagLabel.font = .systemFont(ofSize: 30, weight: .regular)
+        tagLabel.font = .systemFont(ofSize: 16, weight: .regular)
         tagLabel.textColor = .orange
         self.backgroundColor = UIColor(hex: "FBECDA")
     }

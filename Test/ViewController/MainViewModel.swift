@@ -6,14 +6,12 @@
 //
 
 import Foundation
-import UIKit
 
 class MainViewModel {
     
-    var sectionData = [Item]()
+    private(set) var sectionData = [Item]()
 
-    init() {
-    }
+    init() {}
     
     func item(forCellAt row: Int) -> Item? {
         guard row < sectionData.count else { return nil}

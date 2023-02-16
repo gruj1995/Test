@@ -24,7 +24,7 @@ class MainViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+
         viewModel.fetchItems {[weak self] isSuccess in
             guard let self = self else {return}
             self.countLabel.text = "totalCount: \(self.viewModel.sectionData.count)"
@@ -41,15 +41,13 @@ class MainViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        tableView.separatorInset = .init(top: 0, left: 15, bottom: 0, right: 15)
-        tableView.backgroundColor = .lightGray
+        tableView.separatorInset = .zero
+        tableView.backgroundColor = UIColor(hex: "F0F0F0")
     }
-
 }
 
 
-// MARK: - Extension UITableViewDataSource
-extension MainViewController: UITableViewDataSource{
+extension MainViewController: UITableViewDataSource, UITableViewDelegate{
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.sectionData.count
@@ -63,23 +61,18 @@ extension MainViewController: UITableViewDataSource{
             return cell
         }
         cell.configuration(nickName: item.user.nickName, imageUrl: item.user.imageUrl)
+        cell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self, forRow: indexPath.row)
         return cell
     }
+    
+//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+//
+//        guard let tableViewCell = cell as? TableViewCell else { return }
+//
+//        tableViewCell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self, forRow: indexPath.row)
+//    }
 }
 
-// MARK: - Extension UITableViewDelegate
-extension MainViewController: UITableViewDelegate{
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        
-        guard let tableViewCell = cell as? TableViewCell else { return }
-        
-        tableViewCell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self, forRow: indexPath.row)
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    }
-}
 
 extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -87,6 +80,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         guard let item = viewModel.item(forCellAt: collectionView.tag) else {
             return 0
         }
+        collectionView.isHidden = item.tags.isEmpty
         return item.tags.count
     }
 
@@ -98,32 +92,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         guard let item = viewModel.item(forCellAt: collectionView.tag) else {
             return cell
         }
-        
         cell.configuration(tag: item.tags[indexPath.item])
-        print("__++ \(item.tags[indexPath.item])")
         return cell
     }
-}
-
-// MARK: - Extension UICollectionViewDelegateFlowLayout
-extension MainViewController: UICollectionViewDelegateFlowLayout{
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        let width = floor((collectionView.bounds.width - itemSpace * (itemCountPerLine - 1)) / itemCountPerLine)
-//        let width
-//        return CGSize(width: width, height: width)
-        return CGSize(width: 40, height: 20)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
-    }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
-    }
-    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-//        return CGSize(width: collectionView.frame.size.width, height: 10)
-//    }
 }

@@ -103,33 +103,10 @@ class WebApiManager{
             }
         }
     }
-    
-    /// 使用暫存 token 呼叫
-//    func downloadWithToken(url:String, token: String, params:Dictionary<String,String> = [:], downloadDestination: @escaping DownloadRequest.Destination, progressHandler:@escaping (Progress) -> Void, success:@escaping ResponseSuccess, fail:@escaping ResponseFail){
-//
-//        alamofireManager.download(url,
-//                                  method: .post,
-//                                  parameters: params,
-//                                  encoding: URLEncoding.default,
-//                                  headers: ["X-Money" : "Bearer \(token)"],
-//                                  to: downloadDestination)
-//            .downloadProgress(closure: progressHandler)
-//            .validate(statusCode: 200 ..< 400)
-//            .responseData { (response) in
-//            switch response.result {
-//            case .success:
-//                success(response.resumeData)
-//                break
-//            case .failure:
-//                fail(response.resumeData, response.response?.statusCode, response.error)
-//                break
-//            }
-//        }
-//    }
 }
 
 class ApiLogger: EventMonitor{
-    let queue = DispatchQueue(label: "com.money.NeverLoseETF")
+    let queue = DispatchQueue(label: "com.pinyi.Test")
     
     func requestDidFinish(_ request: Request) {
         print("\(request.description)")
