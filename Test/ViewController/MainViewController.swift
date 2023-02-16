@@ -11,11 +11,14 @@ class MainViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var countLabel: UILabel!
+    
     private var viewModel: MainViewModel = MainViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        countLabel.font = .systemFont(ofSize: 30, weight: .medium)
+        countLabel.textColor = .white
         setTableView()
     }
 
@@ -24,6 +27,7 @@ class MainViewController: UIViewController {
         
         viewModel.fetchItems {[weak self] isSuccess in
             guard let self = self else {return}
+            self.countLabel.text = "totalCount: \(self.viewModel.sectionData.count)"
             self.tableView.reloadData()
         }
     }
@@ -99,4 +103,27 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         print("__++ \(item.tags[indexPath.item])")
         return cell
     }
+}
+
+// MARK: - Extension UICollectionViewDelegateFlowLayout
+extension MainViewController: UICollectionViewDelegateFlowLayout{
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        let width = floor((collectionView.bounds.width - itemSpace * (itemCountPerLine - 1)) / itemCountPerLine)
+//        let width
+//        return CGSize(width: width, height: width)
+        return CGSize(width: 40, height: 20)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 10
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 10
+    }
+    
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+//        return CGSize(width: collectionView.frame.size.width, height: 10)
+//    }
 }
